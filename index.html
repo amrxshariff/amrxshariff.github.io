@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  Amr Shariff — portfolio. Single file, no build step.
+  Serve as index.html at the root of amrxshariff.github.io
+
+  Before publishing:
+    · put cv.pdf next to this file (the version with your
+      postal address and phone number removed)
+    · confirm the GitHub URL below matches your username
+  ============================================================
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amr Shariff — Mathematics &amp; Statistics, Loughborough</title>
+<meta name="description" content="Amr Shariff — BSc (Hons) Mathematics with Statistics, Loughborough. Machine learning, uncertainty quantification, and a year in data science at Roche.">
+<meta name="author" content="Amr Shariff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0F0D12;
+    --bg-card:#16131B;
+    --rule:#2B2632;
+    --ink:#EDE9E4;
+    --muted:#A9A1B2;
+    --gold:#C9A96A;
+    --gold-dim:rgba(201,169,106,.16);
+    --gold-wash:rgba(201,169,106,.06);
+
+    --display:"Playfair Display",Georgia,serif;
+    --body:"IBM Plex Sans",system-ui,-apple-system,sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,monospace;
+
+    --wrap:1080px;
+  }
+
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+  }
+
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16.5px;
+    font-weight:300;
+    line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  a:focus-visible{outline:1.5px solid var(--gold);outline-offset:4px;border-radius:2px}
+
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 40px}
+
+  /* ---------------- nav ---------------- */
+  .nav{
+    position:sticky;top:0;z-index:20;
+    background:rgba(15,13,18,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-in{
+    max-width:var(--wrap);margin:0 auto;padding:22px 40px;
+    display:flex;align-items:center;justify-content:space-between;gap:24px;
+  }
+  .brand{font-family:var(--display);font-size:20px;letter-spacing:.01em;text-decoration:none}
+  .nav-links{display:flex;gap:34px;list-style:none;margin:0;padding:0}
+  .nav-links a{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);text-decoration:none;transition:color .18s;
+  }
+  .nav-links a:hover{color:var(--gold)}
+
+  /* ---------------- hero ---------------- */
+  .hero{padding:104px 0 88px}
+  .eyebrow{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;
+    color:var(--gold);margin:0 0 26px;
+  }
+  .hero h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(52px,8.4vw,104px);
+    line-height:1.02;letter-spacing:-.015em;
+    margin:0 0 30px;
+  }
+  .hero h1 em{font-style:italic;color:var(--gold)}
+
+  .hero-lede{font-size:19px;max-width:44ch;margin:0 0 34px;color:var(--ink);line-height:1.6}
+  .hero-lede strong{font-weight:500;color:var(--gold)}
+
+  .facts{
+    font-family:var(--mono);font-size:12.5px;line-height:2.05;color:var(--muted);
+    margin:0 0 36px;padding:18px 0;
+    border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);
+    max-width:600px;
+  }
+  .facts span{color:var(--gold);opacity:.62;display:inline-block;min-width:104px}
+
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+  .btn{
+    font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    text-decoration:none;padding:12px 22px;border:1px solid var(--rule);border-radius:2px;
+    color:var(--muted);transition:color .18s,border-color .18s,background .18s;
+  }
+  .btn:hover{color:var(--gold);border-color:var(--gold-dim);background:var(--gold-wash)}
+  .btn-lead{color:var(--bg);background:var(--gold);border-color:var(--gold);font-weight:500}
+  .btn-lead:hover{color:var(--bg);background:#D9BC81;border-color:#D9BC81}
+
+  /* ---------------- section frame ---------------- */
+  .sect{padding:76px 0;border-top:1px solid var(--rule)}
+  .sect-head{margin:0 0 44px}
+  .sect-head .eyebrow{display:flex;align-items:center;gap:18px;margin-bottom:16px}
+  .sect-head .eyebrow::after{content:"";flex:1;height:1px;background:var(--rule);max-width:220px}
+  .sect-head h2{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(31px,4.4vw,44px);line-height:1.14;margin:0;letter-spacing:-.01em;
+  }
+  .sect-head h2 em{font-style:italic;color:var(--gold)}
+
+  .prose{max-width:64ch;color:var(--muted);font-size:17px}
+  .prose p{margin:0 0 17px}
+  .prose p:last-child{margin-bottom:0}
+  .prose strong{color:var(--ink);font-weight:500}
+
+  /* ---------------- cards ---------------- */
+  .card{
+    background:var(--bg-card);border:1px solid var(--rule);border-radius:3px;
+    padding:30px 32px;margin:0 0 16px;
+  }
+  .card h3{
+    font-family:var(--display);font-weight:600;font-size:23px;line-height:1.28;
+    margin:0 0 6px;letter-spacing:-.005em;
+  }
+  .card .meta{
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--gold);
+    opacity:.78;margin:0 0 18px;
+  }
+  .card p{margin:0 0 14px;color:var(--muted);font-size:16px}
+  .card p:last-child{margin-bottom:0}
+  .card em{color:var(--ink);font-style:italic}
+
+  .tags{
+    display:flex;flex-wrap:wrap;gap:8px;
+    margin:20px 0 0;padding-top:18px;border-top:1px solid var(--rule);
+  }
+  .tag{
+    font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--muted);
+    border:1px solid var(--rule);border-radius:2px;padding:4px 10px;
+  }
+
+  .role-line{
+    display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;
+    gap:8px;margin:0 0 18px;
+  }
+  .role-line .meta{margin:0}
+  .role-line h3{margin:0}
+
+  /* ---------------- skills ---------------- */
+  .cols{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+  .cols h4{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold);opacity:.8;font-weight:500;margin:0 0 14px;
+    padding-bottom:11px;border-bottom:1px solid var(--rule);
+  }
+  .cols ul{list-style:none;margin:0;padding:0}
+  .cols li{color:var(--muted);font-size:15.5px;padding:4px 0}
+
+  /* ---------------- contact ---------------- */
+  .contact-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:start}
+  .contact-list{list-style:none;margin:0;padding:0}
+  .contact-list li{border-bottom:1px solid var(--rule);padding:14px 0}
+  .contact-list li:first-child{border-top:1px solid var(--rule)}
+  .contact-list a{
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    text-decoration:none;color:var(--ink);font-size:15.5px;transition:color .18s;
+  }
+  .contact-list a:hover{color:var(--gold)}
+  .contact-list .k{
+    font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  footer{
+    border-top:1px solid var(--rule);padding:30px 0 44px;
+    font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--muted);opacity:.65;
+  }
+
+  /* ---------------- responsive ---------------- */
+  @media (max-width:860px){
+    .wrap,.nav-in{padding-left:24px;padding-right:24px}
+    .nav-links{gap:20px}
+    .hero{padding:64px 0 56px}
+    .sect{padding:56px 0}
+    .cols{grid-template-columns:1fr;gap:28px}
+    .contact-grid{grid-template-columns:1fr;gap:34px}
+    .card{padding:24px 22px}
+  }
+  @media (max-width:620px){
+    .nav-links{display:none}
+    .facts{line-height:1.55}
+    .facts span{display:block;min-width:0}
+    .facts div{padding:6px 0}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<nav class="nav">
+  <div class="nav-in">
+    <a class="brand" href="#top">Amr Shariff</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Mathematics · Statistics · Machine Learning</p>
+    <h1>Amr <em>Shariff</em></h1>
+
+    <p class="hero-lede">
+      
+    </p>
+
+    <div class="facts">
+      <div><span>Degree</span>BSc (Hons) Mathematics with Statistics — 2:1</div>
+      <div><span>University</span>Loughborough, 2022-2026</div>
+      <div><span>Placement</span>Data Sciences, Roche Products Ltd.</div>
+      <div><span>Based</span>London, United Kingdom</div>
+      <div><span>Seeking</span>Data science · Machine learning · Quantitative research</div>
+    </div>
+
+    <div class="actions">
+      <a class="btn btn-lead" href="cv.pdf">Download CV</a>
+      <a class="btn" href="https://github.com/amrxshariff">GitHub</a>
+      <a class="btn" href="https://www.linkedin.com/in/amr-shariff">LinkedIn</a>
+      <a class="btn" href="mailto:amrxshariff@gmail.com">Email</a>
+    </div>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section class="sect" id="about">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow">About</p>
+      <h3>Current work and motivations</h3>
+    </div>
+    <div class="prose">
+      <p>
+        I have a strong mathematical background, and I’m particularly interested in applications of mathematics in the real world. Over the  last 2 years outside of my formal studies and my placement year I have been developing my knowledge and skills around <strong>machine learning</strong> as this is an area which I find extremely fascinating. I have been able to explore and apply various supervised and unsupervised machine learning techniques such as regression,  classification, clustering, reinforcement learning, associative rule based learning, and have had intermediate experience with natural language processing and convolutional neural networks to solve problems and draw insights from large data sets. I have also been able to test and refine my  skills in Kaggle competitions. My most recent curiosities with Machine Learning have led me to develop an interest to learn more  about <strong>Agents, Quantum Computing and Decentralised Finance</strong>. 
+      </p>
+      <p>
+        Alongside my degree I spent a year in industry as a data scientist, which taught me a side of data science I had no idea existed — here my work was mainly centered around <strong>data quality and data governance</strong>. It was in this role that I was fortunate enough to learn from other professionals a large amount of professional skills such as project planning using agile and scrum methodologies, time management aross numerous projects with tight deadlines, working in global teams and exercising cross-functional collaboration in projects, applying critical thinking, troubleshooting, and issue resolution skills, and communicating and presenting technical concepts to a non-technical audience which I've learnt is something I can do quite well through the use of examples to help contextualise the concept.
+      <p>
+
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section class="sect" id="experience">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow">Experience</p>
+      <h3>Previous employment</h3>
+    </div>
+
+    <article class="card">
+      <div class="role-line">
+        <h3>Roche Products Ltd. — Data Sciences Industrial Placement</h3>
+        <p class="meta">July 2024 – August 2025</p>
+      </div>
+      <p>
+        Thirteen months inside the data sciences function of a global pharmaceutical
+        organisation, delivering in agile, cross-functional teams. Two pieces of work made up
+        most of it.
+      </p>
+      <p>
+        <em>Data dictionary automation.</em> I built and led a process to automate population of
+        the data dictionary the company relies on, working with metadata and JavaScript. The
+        process was handed over and was able to be run
+        run by non-technical colleagues on the team who had never interacted with code before.
+      </p>
+      <p>
+        <em>Study master data quality framework.</em> I led development of a framework for
+        assessing the quality of the company's study master data, designed to surface gaps
+        across studies so that future AI-driven projects leveraging that data would be standing
+        on something solid. I also contributed to onboarding and handover for the project which was handed over to a team of external vendors to continue after the placement had concluded.
+      </p>
+       <p>
+      <em>Additional work.</em> Hosting and coordinating a quarterly conference for the Data Sciences community in both the UK and Basel sites with speakers from different functions touching on updates about moleucles the company was working on with an emphasis on providing an insight as to how data was being used to progress the project. My role throughout the year varied between hosting the event, promoting the event through posters and regular communication, and technical support. Other work also included exploring LLM capabilities and assessing how models might be integrated for complex use cases within the team, in particular leveraging an LLM to provide actionable insights for relevant stakeholders for various types of data the team was responsible for. As part of this role I also had the opportunity to onboard and mentor new placement students starting in the company as well as a mentorship program that was led in collaboration with UCL.
+       </p>
+      <div class="tags">
+        <span class="tag">Metadata management</span>
+        <span class="tag">Data quality frameworks</span>
+        <span class="tag">Process automation</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">Agile / Scrum</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="role-line">
+        <h3>TAMC Consultancy — Operations Analyst</h3>
+        <p class="meta">Summer 2021 · Summer 2022</p>
+      </div>
+      <p>
+        Onsite data collection and statistical analysis of operational performance for
+        hospitality clients, reported back to the consultancy's engagement teams.
+      </p>
+    </article>
+
+    <article class="card">
+      <div class="role-line">
+        <h3>Superskills Football Coaching — Football Skills Coach</h3>
+        <p class="meta">November 2017 – September 2023</p>
+      </div>
+      <p>
+        Six years coaching children aged 5–16, and the origin of most of what I know about
+        explaining a technical idea to someone who doesn't yet have the vocabulary for it.
+      </p>
+    </article>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="sect" id="projects">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow">Selected projects</p>
+      <h3>Portfolio work</h3>
+    </div>
+
+    <article class="card">
+      <h3>Uncertainty quantification in AI-assisted coronary artery disease diagnosis</h3>
+      <p class="meta">Final-year dissertation · CADICA dataset</p>
+      <p>
+        Two models trained on the same diagnostic problem from different data: a convolutional
+        neural network with Monte Carlo dropout over angiographic image patches, and a random
+        forest classifier over structured clinical metadata. Rather than comparing headline
+        accuracy, I used Shannon entropy to compare how uncertain each model was, case by case.
+      </p>
+      <p>
+        Raw predictive performance was modest for both — which is precisely why the project
+        takes the shape it does. A model that is often wrong is only dangerous if it is wrong
+        <em>confidently</em>. The contribution is a tiered confidence routing framework that
+        accepts low-entropy predictions, flags the ambiguous middle band, and escalates
+        high-entropy cases to a clinician, turning an unreliable classifier into a triage aid
+        that fails visibly instead of silently.
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">TensorFlow</span>
+        <span class="tag">scikit-learn</span><span class="tag">MC dropout</span>
+        <span class="tag">Shannon entropy</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Agentic AI news digest</h3>
+      <p class="meta">Personal project · deployed and running</p>
+      <p>
+        An agent that identifies which stories in AI and emerging technology have generated the
+        most discussion over the previous twenty-four hours, ranks them, and publishes them as
+        an interactive slideshow readers can click through. It runs on an independent server on
+        a schedule rather than on demand, which meant the interesting problems were less about
+        the model and more about scheduling, failure handling, and making the newsletter survive
+        without supervision.
+      </p>
+      <div class="tags">
+        <span class="tag">Agents</span><span class="tag">Python</span>
+        <span class="tag">Scheduled automation</span><span class="tag">Deployment</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Modelling sleep health outcomes across correlated populations</h3>
+      <p class="meta">Statistics for Large Data · R Markdown</p>
+      <p>
+        Generalised linear models and logistic regression for the outcome structure,
+        mixed-effects models via <em>lme4</em> where observations were grouped rather than
+        independent, and both hierarchical and k-means clustering — tested against a change of
+        distance metric to check the clusters were real rather than an artefact of the
+        algorithm.
+      </p>
+      <div class="tags">
+        <span class="tag">R</span><span class="tag">lme4</span>
+        <span class="tag">GLMs</span><span class="tag">ggplot2</span>
+        <span class="tag">R Markdown</span>
+      </div>
+    </article>
+
+    <article class="card">
+      <h3>Network clustering visualiser</h3>
+      <p class="meta">In development</p>
+      <p>
+        A deployable product in progress that lets users upload their LinkedIn Connections CSV, explore their professional network in 3D, search by skill/role, and query an AI assistant for team-building suggestions.Deployment model: Version A — users upload their own data, processed ephemerally, never persisted server-side. This resolves LinkedIn ToS and UK GDPR concerns and means the pipeline must be able to generalise to any network. Potential value comes from a team leader who wants to allocate team resources to a project, or an entrepreneurial individual who wants to identify who in their network might be a valuable connections to start a new business idea based on their existing experience.
+      </p>
+      <div class="tags">
+        <span class="tag">Clustering</span><span class="tag">3D visualisation</span>
+        <span class="tag">LLM integration</span>
+      </div>
+    </article>
+
+    <!--
+      GAP WORTH CLOSING: there is still no finance-adjacent quantitative artefact here.
+      For quant applications specifically, one would be worth more than any amount of
+      rewriting. Candidates, easiest first: a Monte Carlo option pricer benchmarked
+      against Black-Scholes with convergence and variance-reduction discussion (leans
+      directly on your stochastic methods in finance module); a volatility model fitted
+      to real returns with residual diagnostics; a backtest that is honest about
+      transaction costs and look-ahead bias. Add it as a card here, then delete this note.
+    -->
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section class="sect" id="skills">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow">Background</p>
+      <h3>Tools and training</h3>
+    </div>
+
+    <div class="cols">
+      <div>
+        <h4>Languages &amp; tools</h4>
+        <ul>
+          <li>Python — NumPy, pandas, matplotlib, scikit-learn, TensorFlow</li>
+          <li>R — lme4, tidyverse, ggplot2, glm</li>
+          <li>JavaScript · Google Apps Script</li>
+          <li>LaTeX · Git</li>
+           <li>Claude Cowork </li>
+          <li>Tableau · Ataccama · Excel</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Mathematics</h4>
+        <ul>
+          <li>Probability &amp; statistical inference</li>
+          <li>Linear algebra</li>
+          <li>Stochastic methods in finance</li>
+          <li>GLMs &amp; mixed-effects models</li>
+          <li>Partial differential equations</li>
+          <li>Numerical &amp; asymptotic methods</li>
+          <li>Game theory · Mathematical biology</li>
+          <li>Graph theory · Operational Research</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <ul>
+          <li>Exploratory data analysis</li>
+          <li>Data cleaning &amp; pre-processing</li>
+          <li>Model evaluation &amp; uncertainty quantification</li>
+          <li>Data quality management</li>
+          <li>Metadata governance</li>
+          <li>Agile &amp; Scrum delivery</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="sect" id="contact">
+  <div class="wrap">
+    <div class="sect-head">
+      <p class="eyebrow">Contact</p>
+      
+    </div>
+
+    <div class="contact-grid">
+      <div class="prose">
+        <p>
+          I'm looking for roles in data science, machine learning and quantitative research. If
+          you're hiring I would be happy to provide any additional context and information on my current experience.
+        </p>
+        <p>
+          Away from the screen I play competitive football and I'm midway through training towards an Ironman
+        </p>
+      </div>
+
+      <ul class="contact-list">
+        <li><a href="mailto:amrxshariff@gmail.com"><span class="k">Email</span><span>amrxshariff@gmail.com</span></a></li>
+        <li><a href="https://www.linkedin.com/in/amr-shariff"><span class="k">LinkedIn</span><span>/in/amr-shariff</span></a></li>
+        <li><a href="https://github.com/amrxshariff"><span class="k">GitHub</span><span>@amrxshariff</span></a></li>
+        <li><a href="cv.pdf"><span class="k">CV</span><span>Download PDF</span></a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Amr Shariff — London, United Kingdom</div>
+</footer>
+
+</body>
+</html>
