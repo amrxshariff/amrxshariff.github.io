@@ -403,19 +403,33 @@
       </div>
     </article>
 
-    <article class="card">
+        <article class="card">
       <h3>Network clustering visualiser</h3>
-      <p class="meta">In development</p>
+      <p class="meta">In development · v1 live</p>
       <p>
-        A system that maps a professional network to occupational structure and renders it as an interactive 3D dashboard. 
-        The first build clustered profile embeddings unsupervised, validated against a synthetic ground-truth corpus so that cluster quality could be scored rather than asserted — silhouette 0.4745, 
-        and TF-IDF auto-labelling recovered all seven planted archetypes unaided. On real data it failed outright: 336 of 371 nodes resolved as singletons, because a real professional network has no density to find. 
-        Rather than tune the clustering until it looked better, I reframed the task as classification against the O*NET occupational taxonomy, 
-        first measuring that 93.7% of distinct job titles map unambiguously at major-group level against 84.7% at detailed level, and scoping the system to major group on that evidence. 
-        The dashboard is built in Streamlit with 3D graph rendering and search by skill or role; an LLM team-building assistant is the next phase. Users upload their own LinkedIn Connections export, 
-        which is processed in memory and never persisted — a constraint that keeps the system inside LinkedIn’s terms and UK GDPR, and forces the pipeline to generalise to any network rather than to mine.
-
-        Access to v1 here: <em>https://avianv1.streamlit.app/</em>
+        A system that maps a professional network to occupational structure and renders it as an
+        interactive 3D dashboard. The first build clustered profile embeddings unsupervised,
+        validated against a synthetic ground-truth corpus so that cluster quality could be
+        <em>scored</em> rather than asserted — silhouette 0.4745, and TF-IDF auto-labelling
+        recovered all seven planted archetypes unaided.
+      </p>
+      <p>
+        On real data it failed outright: 336 of 371 nodes resolved as singletons, because a real
+        professional network has no density to find. Rather than tune the clustering until it
+        looked better, I reframed the task as classification against the O*NET occupational
+        taxonomy, first measuring that 93.7% of distinct job titles map unambiguously at
+        major-group level against 84.7% at detailed level, and scoping the system to major group
+        on that evidence.
+      </p>
+      <p>
+        The dashboard is built in Streamlit with 3D graph rendering and search by skill or role;
+        an LLM team-building assistant is the next phase. Users upload their own LinkedIn
+        Connections export, which is processed in memory and never persisted — a constraint that
+        keeps the system inside LinkedIn's terms and UK GDPR, and forces the pipeline to
+        generalise to any network rather than to mine.
+      </p>
+      <p>
+        <a class="btn" href="https://avianv1.streamlit.app/" target="_blank" rel="noopener">Open v1 demo</a>
       </p>
       <div class="tags">
         <span class="tag">Python</span><span class="tag">Embeddings</span>
