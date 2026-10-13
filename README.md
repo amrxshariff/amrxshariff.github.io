@@ -62,11 +62,27 @@ Generalised linear models and logistic regression for the outcome structure, mix
 
 `R` `lme4` `tidyverse` `R Markdown` `ggplot` `lmer``glm`
 
+### Network clustering visualiser
+*In development · [v1 live](https://avianv1.streamlit.app/)*
+
+Maps a professional network to occupational structure and renders it as an interactive 3D dashboard. The first build clustered profile embeddings unsupervised, validated against a synthetic ground-truth corpus so cluster quality could be scored rather than asserted — silhouette 0.4745, with TF-IDF auto-labelling recovering all seven planted archetypes unaided.
+
+On real data it failed outright: 336 of 371 nodes resolved as singletons, because a real professional network has no density to find. Rather than tune the clustering, I reframed the task as classification against the O*NET occupational taxonomy, first measuring that 93.7% of distinct job titles map unambiguously at major-group level against 84.7% at detailed level, and scoping to major group on that evidence. Uploaded data is processed in memory and never persisted.
+
+`Python` `sentence-transformers` `HDBSCAN` `UMAP` `O*NET` `Streamlit`
+
+### Agentic AI news digest
+*Personal project · deployed and running*
+
+An agent that identifies which stories in AI and emerging technology generated the most discussion over the previous twenty-four hours, ranks them, and publishes them as an interactive slideshow. It runs on an independent server on a schedule rather than on demand, so the hard problems were scheduling, failure handling and post-deploy verification rather than the model.
+
+`Python` `LLM agents` `Scheduled automation` `Deployment`
+
 ---
 
 ## Technical skills
 
-**Languages & tools** — Python (NumPy, pandas, scikit-learn, PyTorch, Jupyter), R, SQL, LaTeX, Git, Tableau, Ataccama, Google Apps Script, Excel
+**Languages & tools** — Python (NumPy, pandas, scikit-learn, PyTorch, Jupyter), R, LaTeX, Git, Tableau, Ataccama, Google Apps Script, Excel
 
 **Methods** — regression, classification, clustering, reinforcement learning, natural language processing, convolutional neural networks, uncertainty quantification, mixed-effects modelling
 
