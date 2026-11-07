@@ -403,7 +403,7 @@
       </div>
     </article>
 
-        <article class="card">
+    <article class="card">
       <h3>Network clustering visualiser</h3>
       <p class="meta">In development · v1 live</p>
       <p>
@@ -426,7 +426,7 @@
         an LLM team-building assistant is the next phase. Users upload their own LinkedIn
         Connections export, which is processed in memory and never persisted — a constraint that
         keeps the system inside LinkedIn's terms and UK GDPR, and forces the pipeline to
-        generalise to any network rather than to mine.
+        generalise to any network rather than to just mine.
       </p>
       <p>
         <a class="btn" href="https://avianv1.streamlit.app/" target="_blank" rel="noopener">Open v1 demo</a>
@@ -435,6 +435,29 @@
         <span class="tag">Python</span><span class="tag">Embeddings</span>
         <span class="tag">HDBSCAN / UMAP</span><span class="tag">O*NET taxonomy</span>
         <span class="tag">Streamlit</span><span class="tag">LLM integration</span>
+      </div>
+    </article>
+
+     <article class="card">
+      <h3>Core ML algorithms from first principles</h3>
+      <p class="meta">Ongoing · NumPy only, no ML frameworks · tests green in CI</p>
+      <p>
+        A public repo where I rebuild the algorithms underneath modern ML from scratch, with the constraint that every claim has to be provable by a test rather than asserted in a README. 
+        The first project is gradient descent: a NumPy optimiser with gradient-norm early stopping, analytic gradients for a scaled quadratic and the Rosenbrock function, 
+        and a pytest suite that asserts convergence to the known analytic minimum within 1e-6 and checks each analytic gradient against a central finite difference to 1e-5.
+      </p>
+      <p>
+        The part I found most useful was deriving the step-size stability 
+        bound — η must stay below 2/λ_max, where λ_max is the largest eigenvalue of the Hessian and then testing it empirically by running either side of the threshold.
+        The Rosenbrock run makes the cost of ill-conditioning visible: the path crawls along the valley floor long after the quadratic has settled.
+      </p>
+      <p>
+        <a class="btn" href="https://github.com/amrxshariff/Core-ML-algorithms-from-first-principles" target="_blank" rel="noopener">View repo</a>
+      </p>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Numpy</span>
+        <span class="tag">pytest</span><span class="tag">GitHub Actions</span>
+        <span class="tag">Matplotlib</span><span class="tag">numerical optimisation</span>
       </div>
     </article>
 
